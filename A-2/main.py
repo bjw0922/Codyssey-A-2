@@ -3,6 +3,7 @@ import os
 import shutil
 import sys
 from typing import List
+import random
 
 STATE_FILE = "state.json"
 BACKUP_STATE_FILE = "state.json.bak"
@@ -238,11 +239,28 @@ class QuizGame:
             print("⚠️ 등록된 퀴즈가 없습니다. 먼저 퀴즈를 추가하세요.")
             return
 
-        print(f"\n📝 퀴즈를 시작합니다! (총 {len(self.quizzes)}문제)\n")
+        try:
+            question_count = self.input_number(
+                f"몇 문제를 풀까요? (1-{len(self.quizzes)}): ",
+                1,
+                len(self.quizzes)
+            )
+        except (KeyboardInterrupt, EOFError):
+            print("\n퀴즈 풀이가 취소되었습니다. 메뉴로 돌아갑니다.\n")
+            return
+
+        # 문제 목록을 복사하여 랜덤하게 섞기
+        selected_quizzes = self.quizzes.copy()
+        random.shuffle(selected_quizzes)
+
+        # 사용자가 선택한 문제 개수만큼 가져오기
+        selected_quizzes = selected_quizzes[:question_count]
+
+        print(f"\n📝 퀴즈를 시작합니다! (총 {question_count}문제, 랜덤 출제)\n")
         correct = 0
 
         try:
-            for idx, quiz in enumerate(self.quizzes):
+            for idx, quiz in enumerate(selected_quizzes):
                 print("----------------------------------------")
                 quiz.show(idx)
                 user_ans = self.input_number("정답 입력: ", 1, 4)
@@ -256,7 +274,7 @@ class QuizGame:
             return
 
         print("========================================")
-        print(f"🏆 결과: {len(self.quizzes)}문제 중 {correct}문제 정답! ({int(correct / len(self.quizzes) * 100)}점)")
+        print(f"🏆 결과: {question_count}문제 중 {correct}문제 정답! ({int(correct / question_count * 100)}점)")
 
         self.has_played = True
         if correct > self.best_score:
