@@ -494,10 +494,26 @@ git merge feature/add-quiz
 # → feature/add-quiz 브랜치의 커밋들이 main에 합쳐짐
 ```
 
+**브랜치를 나누어 작업한 후 병합한 예시**
+
+```bash
+*   64c800e merge: integrate git practice evidence branch
+|\
+| * 0a0d673 docs: add pull practice template
+| * 6c9f047 docs: add clone practice template
+| * 4a1ee14 docs: add commit strategy notes
+| * d90888a docs: add branch merge practice notes
+|/
+* 9c51438 chore: ignore Python cache files
+```
+|\ : 기존 브랜치에서 작업이 분기된 흔적
+| * : 별도 브랜치에서 커밋한 기록
+|/ : 분기된 작업 이력이 합쳐지는 지점
+64c800e : 병합 커밋
+
 > 병합은 분리해서 개발한 기능을 메인 코드베이스에 통합하는 작업입니다.  
 > 충돌(conflict)이 발생하면 두 브랜치에서 같은 파일의 같은 줄을 수정한 것이므로,  
 > 어떤 변경을 채택할지 수동으로 결정해야 합니다.
-
 ---
 
 ## Git 실습 체크리스트
@@ -525,13 +541,3 @@ git merge feature/add-quiz
 - 사용자가 풀고 싶은 문제 수를 직접 입력할 수 있습니다.
 - `input_number()`를 재사용하여 입력값을 검증합니다.
 - 선택한 문제 수만큼 출제하고, 해당 문제 수를 기준으로 점수를 계산합니다.
-
-## 문의
-
-<<<<<<< HEAD
-- 작성자: (여기에 이름/이메일 등)
-### 문의
-- 작성자: (여기에 이름/이메일 등)
-=======
-- 작성자: (여기에 이름/이메일 등)
->>>>>>> c1a1c65 (main.py 및 README.md파일 수정)
