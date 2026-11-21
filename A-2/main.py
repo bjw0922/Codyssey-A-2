@@ -281,7 +281,7 @@ class QuizGame:
             print("🎉 새로운 최고 점수입니다!")
             self.best_score = correct
         else:
-            print(f"최고 점수: {self.best_score}문제 정답")
+            print(f"🏆 최고 기록: {self.best_score}문제 정답 (선택한 문제 수는 게임마다 다를 수 있음)\n")
 
         self.save_state()
         print("========================================\n")
