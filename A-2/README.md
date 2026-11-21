@@ -503,8 +503,11 @@ git merge feature/add-quiz
 ## Git 실습 체크리스트
 
 - [x] 의미 있는 커밋 10회 이상
+    - git rev-list --count HEAD
 - [x] 브랜치 생성/병합 실습
+    - ![alt text](<docs/git 브랜치 생성 및 병합.PNG>)
 - [x] clone, pull 명령어 실습
+    - ![alt text](<docs/git-clone & pull.PNG>)
 - [x] README, state.json, main.py 작성 및 관리
 
 ---
