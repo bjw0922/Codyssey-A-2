@@ -16,27 +16,7 @@
 ```bash
 python main.py
 ```
-##클래스에 대한 이해
-1-1. 클래스란 무엇인가?
-클래스는 관련된 데이터와 기능을 하나로 묶어 놓은 설계도
-Ex)자동차
--자동차 설계도: 클래스(Class)
--설계도로 실제 제작한 자동차: 객체(Object)
--자동차의 색상, 속도: 속성(Attribute)
--자동차의 출발, 정지: 메서드(Method)
-|용어	|의미	|예시|
-|---|---|---|
-|클래스	|객체를 만드는 설계도	|class Car:|
-|객체	|클래스를 이용해 생성한 실체	|car1 = Car(...)|
-|인스턴스	|특정 클래스로부터 생성된 객체	|car1은 Car의 인스턴스|
-|속성	|객체가 가지고 있는 데이터	|self.color|
-|메서드	|클래스 내부에 정의된 함수	|drive()|
-|생성자	|객체 생성 시 초기화에 관여하는 메서드	|__init__()|
-|self	|현재 작업 중인 객체 자신	|self.color|
 
-1-2. self는 무엇인가?
-self는 해당 메서드를 사용하고 있는 객체 자신
-self를 쓰는 이유: 클래스 내부의 함수(메서드)가 가리키는 객체의 데이터에 접근해야 하는지 구분하는 용도
 ---
 
 ## 기능 목록
@@ -84,7 +64,7 @@ codyssey1-2/
 
 ### 왜 클래스를 사용했는가?
 
-함수만으로도 구현할 수 있지만, 클래스를 사용하면 아래와 같은 차이가 생깁니다.
+ 함수만으로도 구현할 수 있지만, 클래스를 사용하면 아래와 같은 차이가 생깁니다.
 
 | 구분 | 함수만 사용 | 클래스 사용 |
 |---|---|---|
@@ -514,36 +494,50 @@ git merge feature/add-quiz
 # → feature/add-quiz 브랜치의 커밋들이 main에 합쳐짐
 ```
 
+**브랜치를 나누어 작업한 후 병합한 예시**
+
+```bash
+*   64c800e merge: integrate git practice evidence branch
+|\
+| * 0a0d673 docs: add pull practice template
+| * 6c9f047 docs: add clone practice template
+| * 4a1ee14 docs: add commit strategy notes
+| * d90888a docs: add branch merge practice notes
+|/
+* 9c51438 chore: ignore Python cache files
+```
+|\ : 기존 브랜치에서 작업이 분기된 흔적
+| * : 별도 브랜치에서 커밋한 기록
+|/ : 분기된 작업 이력이 합쳐지는 지점
+64c800e : 병합 커밋
+
 > 병합은 분리해서 개발한 기능을 메인 코드베이스에 통합하는 작업입니다.  
 > 충돌(conflict)이 발생하면 두 브랜치에서 같은 파일의 같은 줄을 수정한 것이므로,  
 > 어떤 변경을 채택할지 수동으로 결정해야 합니다.
-
----
-
-## 실행 화면 예시
-
-- docs/screenshots/menu.png
-- docs/screenshots/play.png
-- docs/screenshots/add_quiz.png
-- docs/screenshots/score.png
-
 ---
 
 ## Git 실습 체크리스트
 
 - [x] 의미 있는 커밋 10회 이상
+    - git rev-list --count HEAD
 - [x] 브랜치 생성/병합 실습
+    - ![alt text](<docs/git 브랜치 생성 및 병합.PNG>)
 - [x] clone, pull 명령어 실습
+    - ![alt text](<docs/git-clone & pull.PNG>)
 - [x] README, state.json, main.py 작성 및 관리
 
 ---
 
-## 문의
+### 보너스 과제
 
-<<<<<<< HEAD
-- 작성자: (여기에 이름/이메일 등)
-### 문의
-- 작성자: (여기에 이름/이메일 등)
-=======
-- 작성자: (여기에 이름/이메일 등)
->>>>>>> c1a1c65 (main.py 및 README.md파일 수정)
+#### 1. 랜덤 출제
+
+- `random` 모듈의 `shuffle()` 함수를 사용했습니다.
+- 기존 문제 목록을 복사하여 순서를 랜덤하게 섞었습니다.
+- 퀴즈를 반복 실행할 때마다 문제 순서가 달라질 수 있습니다.
+
+#### 2. 문제 수 선택
+
+- 사용자가 풀고 싶은 문제 수를 직접 입력할 수 있습니다.
+- `input_number()`를 재사용하여 입력값을 검증합니다.
+- 선택한 문제 수만큼 출제하고, 해당 문제 수를 기준으로 점수를 계산합니다.
