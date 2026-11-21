@@ -500,15 +500,6 @@ git merge feature/add-quiz
 
 ---
 
-## 실행 화면 예시
-
-- docs/screenshots/menu.png
-- docs/screenshots/play.png
-- docs/screenshots/add_quiz.png
-- docs/screenshots/score.png
-
----
-
 ## Git 실습 체크리스트
 
 - [x] 의미 있는 커밋 10회 이상
